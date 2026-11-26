@@ -25,7 +25,6 @@ install(DIRECTORY
   DESTINATION share/${PROJECT_NAME}
 )
 install(PROGRAMS
-  scripts/dummy_data_publisher.py
   scripts/joint_publisher.py
   DESTINATION lib/${PROJECT_NAME}
 )
