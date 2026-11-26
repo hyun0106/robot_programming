@@ -24,12 +24,12 @@ sudo apt update && sudo apt install -y \
 joint_publisher.py, dummy_data_publisher.py는 twolink_msgs(XYpos)를 사용하고,
 실제 로봇 연동에는 twolink_control(serial_node)이 필요합니다.
 두 패키지는 https://github.com/Stick-0/twolink_ros2 에 있으므로
-같은 워크스페이스의 src에 함께 받아서 빌드합니다.
+이 저장소의 src 아래에 함께 받아서 빌드합니다. (src/twolink_ros2는 커밋하지 않음)
 
-mkdir -p ~/ros2_ws/src && cd ~/ros2_ws/src
-git clone -b gazebo_1126 https://github.com/hyun0106/robot_programming.git
-git clone https://github.com/Stick-0/twolink_ros2.git
-cd ~/ros2_ws
+git clone https://github.com/robot-programming-9/robot_programming.git
+cd robot_programming
+git clone https://github.com/Stick-0/twolink_ros2.git src/twolink_ros2
+source /opt/ros/humble/setup.bash
 rosdep install --from-paths src --ignore-src -r -y
 colcon build
 source install/setup.bash
