@@ -72,10 +72,16 @@ def generate_launch_description():
         condition=IfCondition(use_gazebo)  # Execute only if use_gazebo is true
     )
 
+    # 패키지의 RViz 설정(RobotModel, TF, Fixed Frame=base_link)을 불러옴
+    rviz_config = PathJoinSubstitution([
+        FindPackageShare('twolink_gazebo'), 'config', 'rviz.rviz'
+    ])
+
     rviz_node = Node(
         package='rviz2',
         executable='rviz2',
         name='rviz2',
+        arguments=['-d', rviz_config],
         output='screen'
     )
 
